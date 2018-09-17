@@ -1,0 +1,14 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <Label class="action-bar-title" text="Home"></Label>
+    </ActionBar>
+
+    <GridLayout class="page-content">
+        <Image src="~/images/digiserv.jpg"></Image>
+        <Label class="h1 text-center" textWrap="true" text="Welcome to the Digiserv Technician App"></Label>
+    </GridLayout>
+</Page>

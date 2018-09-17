@@ -1,0 +1,66 @@
+<Page class="page" navigatingTo="onNavigatingTo"
+    xmlns:lv="nativescript-ui-listview"
+    xmlns="http://schemas.nativescript.org/tns.xsd" >
+
+    <ActionBar class="action-bar">
+        <NavigationButton ios:visibility="collapsed" />
+        <Label class="action-bar-title" text="Repair Items" horizontalAlignment="center" />
+    </ActionBar>
+
+    <GridLayout class="page-content">
+        <lv:RadListView items="{{ items }}" itemTap="onItemTap" class="list-group">
+            <lv:RadListView.listViewLayout>
+                <lv:ListViewLinearLayout scrollDirection="Vertical" />
+            </lv:RadListView.listViewLayout>
+            <lv:RadListView.itemTemplate>
+                <StackLayout class="list-group-item">
+                    <GridLayout rows="*, *, *" columns="*, *" class="list-group-item-content">
+                        <GridLayout rows="*" columns="auto, *">
+                            <Label col="0" text="Part #:" class="text-primary font-weight-bold">
+                                <FormattedString>
+                                    <Span text="Part #: "/>
+                                    <Span text="{{ItemNum}}"/>
+                                </FormattedString>
+                            </Label>
+                            <Label col="1" horizontalAlignment="right" class="text-primary font-weight-bold">
+                                <FormattedString>
+                                    <Span text="$" />
+                                    <Span text="{{ Price }}" />
+                                </FormattedString>
+                            </Label>
+                        </GridLayout>
+
+                        <StackLayout row="1" class="hr-light m-t-5 m-b-5" colSpan="2" />
+
+                        <Image row="2" src="{{ ImageURL }}" stretch="aspectFill" height="120" class="m-r-20" />
+
+                        <StackLayout row="2" col="1" verticalAlignment="center" class="list-group-item-text">
+                            <Label class="p-b-10">
+                                <FormattedString ios:fontFamily="system">
+                                    <Span text="{{ ItemName }}" />
+                                </FormattedString>
+                            </Label>
+                            <Label class="p-b-10">
+                                <FormattedString ios:fontFamily="system">
+                                    <Span text="{{ Detail1 }}" />
+                                </FormattedString>
+                            </Label>
+                            <Label class="p-b-10">
+                                <FormattedString ios:fontFamily="system">
+                                    <Span text="{{ Detail2 }}" />
+                                </FormattedString>
+                            </Label>
+                            <Label class="p-b-10">
+                                <FormattedString ios:fontFamily="system">
+                                    <Span text="{{ Detail3 }}" />
+                                </FormattedString>
+                            </Label>
+                        </StackLayout>
+                    </GridLayout>
+
+                </StackLayout>
+            </lv:RadListView.itemTemplate>
+        </lv:RadListView>
+        <ActivityIndicator class="activity-indicator" busy="{{ isLoading }}" />
+    </GridLayout>
+</Page>

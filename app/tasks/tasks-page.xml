@@ -1,0 +1,61 @@
+<Page class="page" navigatingTo="onNavigatingTo"
+    xmlns:lv="nativescript-ui-listview"
+    xmlns="http://schemas.nativescript.org/tns.xsd" >
+
+    <ActionBar class="action-bar">
+        <NavigationButton ios:visibility="collapsed" />
+        <Label class="action-bar-title" text="Service Tasks" horizontalAlignment="center" />
+<!--        <ActionItem tap="onNavigatingTo" ios.position="right" android.position="right">
+            <Label text="Refresh" verticalAlignment="center" class="action-item" />
+        </ActionItem>  -->
+
+    </ActionBar>
+
+    <GridLayout class="page-content">
+        <lv:RadListView items="{{ items }}" itemTap="onItemTap" class="list-group" pullToRefresh="true" row="1" pullToRefreshInitiated="{{onPullToRefreshInitiated}}">
+            <lv:RadListView.listViewLayout>
+                <lv:ListViewLinearLayout scrollDirection="Vertical" />
+            </lv:RadListView.listViewLayout>
+            <lv:RadListView.itemTemplate>
+                <StackLayout class="list-group-item">
+                    <GridLayout rows="*, *, *" columns="*" class="list-group-item-content">
+
+                        <StackLayout row="1" class="hr-light m-t-5 m-b-5" colSpan="2" />
+
+                        <StackLayout row="0" col="0" verticalAlignment="center" class="list-group-item-text">
+                            <Label class="p-b-10">
+                                <FormattedString ios:fontFamily="system">
+                                    <Span text= "Date of Service:  "/>
+                                    <Span text="{{ ServiceDate }}" />
+                                </FormattedString>
+                            </Label>
+                            <Label class="p-b-10">
+                                <FormattedString ios:fontFamily="system">
+                                    <Span text="Customer:  "/>
+                                    <Span text="{{ CustNum }}" />
+                                    <Span text=" - " />
+                                    <Span text="{{ CustName }}"/>
+                                </FormattedString>
+                            </Label>
+                            <Label class="p-b-10">
+                                <FormattedString ios:fontFamily="system">
+                                    <Span text="Type of Service:  "/>
+                                    <Span text="{{ ServiceType }}" />
+                                </FormattedString>
+                            </Label>
+                            <Label class="p-b-10">
+                                <FormattedString ios:fontFamily="system">
+                                    <Span text="Part #:  "/>
+                                    <Span text="{{ PartNum }}" />
+                                </FormattedString>
+                            </Label>
+
+                        </StackLayout>
+                    </GridLayout>
+
+                </StackLayout>
+            </lv:RadListView.itemTemplate>
+        </lv:RadListView>
+        <ActivityIndicator class="activity-indicator" busy="{{ isLoading }}" />
+    </GridLayout>
+</Page>
