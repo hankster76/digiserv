@@ -1,14 +1,15 @@
 <Page
-    class="page"
+    class="page service-tab"
     navigatingTo="onNavigatingTo"  
     xmlns="http://schemas.nativescript.org/tns.xsd">
 
     <ActionBar class="action-bar">
-        <Label class="action-bar-title" text="Home"></Label>
+        <Label class="action-bar-title" text="DigiServ Technician App"></Label>
     </ActionBar>
 
+    
     <GridLayout class="page-content">
-        <Image src="~/images/digiserv.jpg"></Image>
-        <Label class="h1 text-center" textWrap="true" text="Welcome to the Digiserv Technician App"></Label>
+        <Image src="~/images/digiserv.jpg" width="300" height="300"></Image>
+<!--        <Label class="h2 text-center" color="white" textWrap="true" text="Welcome to the Digiserv Technician App"></Label> -->
     </GridLayout>
 </Page>

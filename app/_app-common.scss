@@ -25,23 +25,38 @@
 //Action bar
 ActionBar .action-bar-title {
     horizontal-align: center;
-    background: green;
+    background: #02133E;
 }
 .action-bar {
-    background: green;
+    background: #02133E;
 }
 
 .activity-indicator {
-    color:green;
+    color:#85C324;
     width:60;
     height:60
 }
 .text-primary {
-    color: green;
+    color: #85C324;
+}
+.text-primary-w {
+    color: #85C324;
 }
 
 .tab-view {
-    selected-color:green;
+    selected-color:#85C324;
     tabs-background-color:#fff
 }
 
+.list-group-item-2 {
+    color:black;
+    font-size:16;
+    margin:0;
+    padding:16
+}
+
+.service-tab {
+    background-image: url("~/images/techbackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

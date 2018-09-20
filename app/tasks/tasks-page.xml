@@ -1,15 +1,11 @@
-<Page class="page" navigatingTo="onNavigatingTo"
+<Page class="page service-tab" navigatingTo="onNavigatingTo"
     xmlns:lv="nativescript-ui-listview"
     xmlns="http://schemas.nativescript.org/tns.xsd" >
 
     <ActionBar class="action-bar">
         <NavigationButton ios:visibility="collapsed" />
         <Label class="action-bar-title" text="Service Tasks" horizontalAlignment="center" />
-<!--        <ActionItem tap="onNavigatingTo" ios.position="right" android.position="right">
-            <Label text="Refresh" verticalAlignment="center" class="action-item" />
-        </ActionItem>  -->
-
-    </ActionBar>
+    </ActionBar>  
 
     <GridLayout class="page-content">
         <lv:RadListView items="{{ items }}" itemTap="onItemTap" class="list-group" pullToRefresh="true" row="1" pullToRefreshInitiated="{{onPullToRefreshInitiated}}">
@@ -17,41 +13,31 @@
                 <lv:ListViewLinearLayout scrollDirection="Vertical" />
             </lv:RadListView.listViewLayout>
             <lv:RadListView.itemTemplate>
-                <StackLayout class="list-group-item">
-                    <GridLayout rows="*, *, *" columns="*" class="list-group-item-content">
-
-                        <StackLayout row="1" class="hr-light m-t-5 m-b-5" colSpan="2" />
-
-                        <StackLayout row="0" col="0" verticalAlignment="center" class="list-group-item-text">
-                            <Label class="p-b-10">
-                                <FormattedString ios:fontFamily="system">
-                                    <Span text= "Date of Service:  "/>
-                                    <Span text="{{ ServiceDate }}" />
-                                </FormattedString>
-                            </Label>
-                            <Label class="p-b-10">
-                                <FormattedString ios:fontFamily="system">
-                                    <Span text="Customer:  "/>
-                                    <Span text="{{ CustNum }}" />
-                                    <Span text=" - " />
-                                    <Span text="{{ CustName }}"/>
-                                </FormattedString>
-                            </Label>
-                            <Label class="p-b-10">
-                                <FormattedString ios:fontFamily="system">
-                                    <Span text="Type of Service:  "/>
+                 <StackLayout class="list-group-item-2 ">
+                        <!-- individual item from collection -->
+                        <StackLayout backgroundColor="#ffface">
+                            <Label class="font-weight-bold p-l-10">
+                                <FormattedString>
                                     <Span text="{{ ServiceType }}" />
                                 </FormattedString>
                             </Label>
-                            <Label class="p-b-10">
-                                <FormattedString ios:fontFamily="system">
-                                    <Span text="Part #:  "/>
-                                    <Span text="{{ PartNum }}" />
+                            <Label class="font-weight-bold p-l-10" >
+                                <FormattedString>
+                                    <Span text="{{ ServiceDate }}" />
+                                </FormattedString>
+                            </Label>
+                            <Label class="h3 p-l-10">
+                                <FormattedString>
+                                    <Span text="Customer:  "/>
+                                    <Span text="{{ CustName }}"/>
                                 </FormattedString>
                             </Label>
 
                         </StackLayout>
-                    </GridLayout>
+
+                        <!-- line separator 
+                        <StackLayout row="1" class="hr-light m-t-5 m-b-5" colSpan="2" /> -->
+                    <!-- </GridLayout> -->
 
                 </StackLayout>
             </lv:RadListView.itemTemplate>

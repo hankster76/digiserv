@@ -6,6 +6,7 @@ import { Config } from "../shared/config";
 import { ObservableProperty } from "../shared/observable-property-decorator";
 import { Item } from "./shared/item-model";
 import { ItemService } from "./shared/item-service";
+import { ListViewEventData }from "nativescript-ui-listview";
 
 export class PartsListViewModel extends Observable { 
     @ObservableProperty() items: ObservableArray<Item> = new ObservableArray<Item>([]);
@@ -29,4 +30,12 @@ export class PartsListViewModel extends Observable {
                 this.isLoading = false;
             });
     }
+
+    public onPullToRefreshInitiated(args: ListViewEventData) {
+        console.log("Refresh parts list");
+        this.load();
+        const listView = args.object;
+        listView.notifyPullToRefreshFinished();
+    }
+
 }

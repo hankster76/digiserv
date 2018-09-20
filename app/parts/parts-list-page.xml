@@ -1,4 +1,4 @@
-<Page class="page" navigatingTo="onNavigatingTo"
+<Page class="page service-tab" navigatingTo="onNavigatingTo"
     xmlns:lv="nativescript-ui-listview"
     xmlns="http://schemas.nativescript.org/tns.xsd" >
 
@@ -8,7 +8,7 @@
     </ActionBar>
 
     <GridLayout class="page-content">
-        <lv:RadListView items="{{ items }}" itemTap="onItemTap" class="list-group">
+        <lv:RadListView items="{{ items }}" itemTap="onItemTap" class="list-group" pullToRefresh="true" row="1" pullToRefreshInitiated="{{onPullToRefreshInitiated}}">
             <lv:RadListView.listViewLayout>
                 <lv:ListViewLinearLayout scrollDirection="Vertical" />
             </lv:RadListView.listViewLayout>
@@ -34,23 +34,23 @@
 
                         <Image row="2" src="{{ ImageURL }}" stretch="aspectFill" height="120" class="m-r-20" />
 
-                        <StackLayout row="2" col="1" verticalAlignment="center" class="list-group-item-text">
-                            <Label class="p-b-10">
+                        <StackLayout row="2" col="1" verticalAlignment="center" class=" list-group-item-text">
+                            <Label class="c-white p-b-10">
                                 <FormattedString ios:fontFamily="system">
                                     <Span text="{{ ItemName }}" />
                                 </FormattedString>
                             </Label>
-                            <Label class="p-b-10">
+                            <Label class="c-white p-b-10">
                                 <FormattedString ios:fontFamily="system">
                                     <Span text="{{ Detail1 }}" />
                                 </FormattedString>
                             </Label>
-                            <Label class="p-b-10">
+                            <Label class="c-white p-b-10">
                                 <FormattedString ios:fontFamily="system">
                                     <Span text="{{ Detail2 }}" />
                                 </FormattedString>
                             </Label>
-                            <Label class="p-b-10">
+                            <Label class="c-white p-b-10">
                                 <FormattedString ios:fontFamily="system">
                                     <Span text="{{ Detail3 }}" />
                                 </FormattedString>
