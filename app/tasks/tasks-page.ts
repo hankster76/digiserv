@@ -1,6 +1,4 @@
 import { ListViewEventData } from "nativescript-ui-listview";
-//import { ObservableArray } from "tns-core-modules/data/observable-array";
-//import { Observable } from "tns-core-modules/data/observable";
 import { topmost } from "ui/frame";
 import { NavigatedData, Page } from "ui/page";
 import { Push } from "kinvey-nativescript-sdk/push";
