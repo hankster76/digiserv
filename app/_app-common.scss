@@ -43,9 +43,9 @@ ActionBar .action-bar-title {
     color: #85C324;
 }
 
-.tab-view {
-    selected-color:#85C324;
-    tabs-background-color:#18B1DB
+TabView {
+    selectedTabTextColor: black;
+    tabBackgroundColor:#85C324
 }
 
 .list-group-item-2 {
