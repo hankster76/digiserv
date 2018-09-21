@@ -1,4 +1,4 @@
-<Page class="page service-tab" navigatingTo="onNavigatingTo"
+<Page class="page" navigatingTo="onNavigatingTo"
     xmlns:lv="nativescript-ui-listview"
     xmlns="http://schemas.nativescript.org/tns.xsd" >
 
@@ -8,11 +8,8 @@
     </ActionBar>
 
     <GridLayout class="page-content">
-        <lv:RadListView items="{{ items }}" itemTap="onItemTap" class="list-group" pullToRefresh="true" row="1" pullToRefreshInitiated="{{onPullToRefreshInitiated}}">
-            <lv:RadListView.listViewLayout>
-                <lv:ListViewLinearLayout scrollDirection="Vertical" />
-            </lv:RadListView.listViewLayout>
-            <lv:RadListView.itemTemplate>
+        <ListView items="{{ items }}" itemTap="onItemTap" class="list-group service-tab" pullToRefresh="true" row="1" pullToRefreshInitiated="{{onPullToRefreshInitiated}}">
+            <ListView.itemTemplate>
                 <StackLayout class="list-group-item">
                     <GridLayout rows="*, *, *" columns="*, *" class="list-group-item-content">
                         <GridLayout rows="*" columns="auto, *">
@@ -59,8 +56,8 @@
                     </GridLayout>
 
                 </StackLayout>
-            </lv:RadListView.itemTemplate>
-        </lv:RadListView>
+            </ListView.itemTemplate>
+        </ListView>
         <ActivityIndicator class="activity-indicator" busy="{{ isLoading }}" />
     </GridLayout>
 </Page>
