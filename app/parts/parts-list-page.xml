@@ -34,23 +34,23 @@
 
                         <Image row="2" src="{{ ImageURL }}" stretch="aspectFill" height="120" class="m-r-20" />
 
-                        <StackLayout row="2" col="1" verticalAlignment="center" class=" list-group-item-text">
-                            <Label class="c-white p-b-10">
+                        <StackLayout row="2" col="1" verticalAlignment="center" class=" list-group-item-text" backgroundColor="#ffface">
+                            <Label class="p-b-10 p-l-10">
                                 <FormattedString ios:fontFamily="system">
                                     <Span text="{{ ItemName }}" />
                                 </FormattedString>
                             </Label>
-                            <Label class="c-white p-b-10">
+                            <Label class="p-b-10 p-l-10">
                                 <FormattedString ios:fontFamily="system">
                                     <Span text="{{ Detail1 }}" />
                                 </FormattedString>
                             </Label>
-                            <Label class="c-white p-b-10">
+                            <Label class="p-b-10 p-l-10">
                                 <FormattedString ios:fontFamily="system">
                                     <Span text="{{ Detail2 }}" />
                                 </FormattedString>
                             </Label>
-                            <Label class="c-white p-b-10">
+                            <Label class="p-b-10 p-l-10">
                                 <FormattedString ios:fontFamily="system">
                                     <Span text="{{ Detail3 }}" />
                                 </FormattedString>
