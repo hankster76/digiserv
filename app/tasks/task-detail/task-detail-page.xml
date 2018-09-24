@@ -10,36 +10,37 @@
     
     <ScrollView class="page-content">
         <GridLayout rows="*, *, *, *, *, *, *, *" columns="*, *">
-            <Label text="Service Type:" col="0" class="p-l-15 p-b-10 m-r-20 text-primary"/>
+            <Label text="Service Type:" col="0" class="p-l-15 p-b-10 m-r-20 text-primary font-weight-bold"/>
             <Label col="1" class="text p-b-10">
                 <Span text="{{ task.ServiceType }}" />
             </Label>
 
-            <Label text="Service Date:" col="0" row="1" class="p-l-15 p-b-10 m-r-20 text-primary" />
+            <Label text="Service Date:" col="0" row="1" class="p-l-15 p-b-10 m-r-20 text-primary font-weight-bold" />
             <Label text="{{ task.ServiceDate }}" row="1" col="1" class="text p-b-10" />
             
-            <Label text="Part Number:" col="0" row="2" class="p-l-15 p-b-10 m-r-20 text-primary" />
+            <Label text="Part Number:" col="0" row="2" class="p-l-15 p-b-10 m-r-20 text-primary font-weight-bold" />
             <Label text="{{ task.PartNum }}" row="2" col="1" class="text p-b-10" />
 
-            <Label text="Customer #:" col="0" row="3" class="p-l-15 p-b-10 m-r-20 text-primary" />
+            <Label text="Customer #:" col="0" row="3" class="p-l-15 p-b-10 m-r-20 text-primary font-weight-bold" />
             <Label text="{{ task.CustNum }}" row="3" col="1" class="text p-b-10" />
 
-            <Label text="Customer Name:" col="0" row="4" class="p-l-15 p-b-10 m-r-20 text-primary" />
+            <Label text="Customer Name:" col="0" row="4" class="p-l-15 p-b-10 m-r-20 text-primary font-weight-bold" />
             <Label text="{{ task.CustName }}" row="4" col="1" class="text p-b-10" />
             
-            <GridLayout row="5" colSpan="2" rows="*, *, *, *" columns="*, *" >
-                <Label text="Address:" row="0" col="0" class="p-l-15 p-b-10 m-r-20 text-primary" />
+            <GridLayout row="5" colSpan="2" rows="*, *, *, *" columns="*, *" tap="onTapAddress" >  
+                <Label text="Address:" row="0" col="0" class="p-l-15 p-b-10 m-r-20 text-primary font-weight-bold" />
                 <Label text="{{ task.Address }}" row="0" col="1" class="text p-b-10" />
+                <Label text="(Touch to navigate)" row="1" col="0" class="p-l-15 p-b-10 m-r-20 text-danger font-weight-bold"/>
                 <Label text="{{ task.City }}" row="1" col="1" class="text p-b-10" />
                 <Label text="{{ task.State }}" row="2" col="1" class="text p-b-10" />
                 <Label text="{{ task.Zip }}" row="3" col="1" class="text p-b-10" />
             </GridLayout>
 
-            <Label text="Phone:" row="6" class="p-l-15 p-b-10 m-r-20 text-primary" />
-            <Label text="{{ task.Phone }}" row="6" col="1" class="text p-b-10" />
+            <Label text="Phone:" row="6" class="p-l-15 p-b-10 m-r-20 text-primary font-weight-bold" />
+            <Label text="{{ task.Phone }}" row="6" col="1" class="text p-b-10" tap="call" />
 
-            <Label text="Email:" row="7" class="p-l-15 p-b-10 m-r-20 text-primary" />
-            <Label text="{{ task.Email }}" row="7" col="1" class="text p-b-10" />
+            <Label text="Email:" row="7" class="p-l-15 p-b-10 m-r-20 text-primary font-weight-bold" />
+            <Label text="{{ task.Email }}" row="7" col="1" class="text p-b-10" tap="mailTo" />
 
         </GridLayout>  
     </ScrollView>

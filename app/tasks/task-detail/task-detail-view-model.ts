@@ -1,5 +1,7 @@
 import { Observable } from "data/observable";
 import { Task } from "../shared/task-model";
+import { SyncEntity } from "kinvey-nativescript-sdk";
+import { ItemEventData } from "ui/list-view";
 
 /* ***********************************************************
 * This is the item details view model.
