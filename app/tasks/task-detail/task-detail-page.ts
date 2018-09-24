@@ -44,12 +44,12 @@ export function onTapAddress(args) {
     var page = args.object;
     var task = page.bindingContext._task;
     var addr = task.Address + ", " + task.City + ", " + task.State + ", " + task.Zip;
-    console.log("Address is " + addr);
+    //console.log("Address is " + addr);
     let locator = new LocateAddress();
     locator.locate({
       address: addr,
       }).then(() => {
-        console.log("Maps app launched.");
+        //console.log("Maps app launched.");
       }, (error) => {
         console.log(error);
     });    
@@ -60,7 +60,7 @@ export function call(args) {
     var page = args.object;
     var task = page.bindingContext._task;
     var phnum = task.Phone;
-    console.log("Ready to dial " + phnum);
+    //console.log("Ready to dial " + phnum);
 
     if (isAndroid) {
       permissions.requestPermission(android.Manifest.permission.CALL_PHONE, 
@@ -76,52 +76,23 @@ export function call(args) {
     }
 }  
 
+// get object, extract email address and initiate email send
 export function mailTo(args) {
-
     var page = args.object;
     var task = page.bindingContext._task;
     var addr = task.Email;
-    console.log("Mail To " + addr);
-
     var msg: string;
     msg = "Hello, this is your DigiServ Technician.  I would like to talk to you about scheduling your appointment";
-    
-    //dialogs.prompt("Your message").then(r => {
-    console.log("Message to " + addr + ": " + msg);
-    //  msg = r.text;
-    //}); 
-
-    //this.composeOptions = {
-    //  subject: "Message from DigiServ Technician",
-    //  to: addr,
-    //  body: msg
-    //}
-    console.log("Ready to check availability");
+ 
     if(email.available()) {
-        console.log("Email available");
         email.compose({
             subject: "Message from DigiServ Technician",
             to: [addr],
             body: msg
         }).then(result => {
-          console.log(result);
-          console.log('The email was potentially sent!');
-        }).catch(error => console.error(error));
-      }
-    }
 
-/*    email.available((avail: boolean) => {
-      console.log(`The device email status is ${avail}`);
-      if(avail) {
-        email.compose({
-            subject: "Message from DigiServ Technician",
-            to: addr,
-            body: msg
-        }).then(result => {
-          console.log(result);
-          console.log('The email was potentially sent!');
         }).catch(error => console.error(error));
-      }
-    }).catch(error => console.error(error));
-*/
+    }
+}
+
 
