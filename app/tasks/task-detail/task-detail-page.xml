@@ -2,56 +2,45 @@
     
     <ActionBar class="action-bar">
         <NavigationButton tap="onBackButtonTap" android.systemIcon="ic_menu_back" />
-        <Label class="action-bar-title" text="{{ item.ItemName }}" horizontalAlignment="center" />
+        <Label class="action-bar-title" text="{{ task.ServiceType }}" horizontalAlignment="center" />
         <ActionItem tap="onRequestTap" ios.position="right" android.position="right">
-            <Label text="Request" verticalAlignment="center" class="action-item" />
+            <Label text="Acknowledge" verticalAlignment="center" class="action-item" />
         </ActionItem>
     </ActionBar>  
     
-    <GridLayout class="page-content">
-        <ScrollView>
-            <GridLayout rows="auto, auto, auto">
+    <ScrollView class="page-content">
+        <GridLayout rows="*, *, *, *, *, *, *, *" columns="*, *">
+            <Label text="Service Type:" col="0" class="p-l-15 p-b-10 m-r-20 text-primary"/>
+            <Label col="1" class="text p-b-10">
+                <Span text="{{ task.ServiceType }}" />
+            </Label>
+
+            <Label text="Service Date:" col="0" row="1" class="p-l-15 p-b-10 m-r-20 text-primary" />
+            <Label text="{{ task.ServiceDate }}" row="1" col="1" class="text p-b-10" />
             
-                <StackLayout row="1" class="hr-light m-t-15 m-b-15"></StackLayout>
+            <Label text="Part Number:" col="0" row="2" class="p-l-15 p-b-10 m-r-20 text-primary" />
+            <Label text="{{ task.PartNum }}" row="2" col="1" class="text p-b-10" />
 
-                <GridLayout row="2" rows="*, *, *, *, *, *, *, *, *, *, *, *" columns="auto,auto">
-                    <Label text="Service Type:" class="p-l-15 p-b-10 m-r-20 y text-primary"/>
-                    <Label col="1" class="text p-b-10">
-                        <Span text="{{ task.ServiceType }}" />
-                    </Label>
+            <Label text="Customer #:" col="0" row="3" class="p-l-15 p-b-10 m-r-20 text-primary" />
+            <Label text="{{ task.CustNum }}" row="3" col="1" class="text p-b-10" />
 
-                    <Label text="Service Date:" row="1" class="p-l-15 p-b-10 m-r-20 text-primary" />
-                    <Label text="{{ task.ServiceDate }}" row="1" col="1" class="text p-b-10" />
-                    
-                    <Label text="Part Number:" row="2" class="p-l-15 p-b-10 m-r-20 text-primary" />
-                    <Label text="{{ task.PartNum }}" row="2" col="1" class="text p-b-10" />
-
-                    <Label text="Customer #:" row="3" class="p-l-15 p-b-10 m-r-20 text-primary" />
-                    <Label text="{{ task.CustNum }}" row="3" col="1" class="text p-b-10" />
-
-                    <Label text="Customer Name:" row="4" class="p-l-15 p-b-10 m-r-20 text-primary" />
-                    <Label text="{{ task.CustName }}" row="4" col="1" class="text p-b-10" />
-
-                    <Label text="Address:" row="5" class="p-l-15 p-b-10 m-r-20 text-primary" />
-                    <Label text="{{ task.Address }}" row="5" col="1" class="text p-b-10" />
-
-                    <Label text="City:" row="6" class="p-l-15 p-b-10 m-r-20 text-primary" />
-                    <Label text="{{ task.City }}" row="6" col="1" class="text p-b-10" />
-
-                    <Label text="State:" row="7" class="p-l-15 p-b-10 m-r-20 text-primary" />
-                    <Label text="{{ task.State }}" row="7" col="1" class="text p-b-10" />
-
-                    <Label text="Zip Code:" row="8" class="p-l-15 p-b-10 m-r-20 text-primary" />
-                    <Label text="{{ task.Zip }}" row="8" col="1" class="text p-b-10" />
-
-                    <Label text="Phone:" row="9" class="p-l-15 p-b-10 m-r-20 text-primary" />
-                    <Label text="{{ task.Phone }}" row="9" col="1" class="text p-b-10" />
-
-                    <Label text="Email:" row="10" class="p-l-15 p-b-10 m-r-20 text-primary" />
-                    <Label text="{{ task.Email }}" row="10" col="1" class="text p-b-10" />
-
-                </GridLayout>  
+            <Label text="Customer Name:" col="0" row="4" class="p-l-15 p-b-10 m-r-20 text-primary" />
+            <Label text="{{ task.CustName }}" row="4" col="1" class="text p-b-10" />
+            
+            <GridLayout row="5" colSpan="2" rows="*, *, *, *" columns="*, *" >
+                <Label text="Address:" row="0" col="0" class="p-l-15 p-b-10 m-r-20 text-primary" />
+                <Label text="{{ task.Address }}" row="0" col="1" class="text p-b-10" />
+                <Label text="{{ task.City }}" row="1" col="1" class="text p-b-10" />
+                <Label text="{{ task.State }}" row="2" col="1" class="text p-b-10" />
+                <Label text="{{ task.Zip }}" row="3" col="1" class="text p-b-10" />
             </GridLayout>
-        </ScrollView>
-    </GridLayout>
+
+            <Label text="Phone:" row="6" class="p-l-15 p-b-10 m-r-20 text-primary" />
+            <Label text="{{ task.Phone }}" row="6" col="1" class="text p-b-10" />
+
+            <Label text="Email:" row="7" class="p-l-15 p-b-10 m-r-20 text-primary" />
+            <Label text="{{ task.Email }}" row="7" col="1" class="text p-b-10" />
+
+        </GridLayout>  
+    </ScrollView>
 </Page>
