@@ -1,11 +1,11 @@
 {
   "nativescript": {
     "id": "com.progress.demo.digiserv",
-    "tns-ios": {
-      "version": "4.2.0"
-    },
     "tns-android": {
       "version": "4.2.0"
+    },
+    "tns-ios": {
+      "version": "4.1.1"
     }
   },
   "description": "NativeScript Application",

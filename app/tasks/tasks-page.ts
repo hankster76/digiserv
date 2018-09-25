@@ -7,6 +7,9 @@ import { Task } from "./shared/task-model";
 import { View } from "ui/core/view";
 import { ItemEventData } from "ui/list-view";
 
+import * as utils from "utils/utils";
+
+declare var UIColor: any;
 
 export function onNavigatingTo(args: NavigatedData) {
     Push.onNotification((data: any) => {
@@ -38,6 +41,14 @@ export function onItemTap(args: ItemEventData) {
             curve: "ease"
         }
     });
+}
+
+export function makeBackgroundTransparent(args: ListViewEventData) {
+    let cell = args.ios;
+
+    if (cell) {
+        cell.backgroundView.backgroundColor = utils.ios.getter(UIColor, UIColor.clearColor);
+    }
 }
 
 

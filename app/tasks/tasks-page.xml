@@ -8,8 +8,9 @@
     </ActionBar>  
 
     <GridLayout class="page-content">
-        <ListView items="{{ items }}" itemTap="onItemTap" class="list-group service-tab" pullToRefresh="true" row="1" pullToRefreshInitiated="{{onPullToRefreshInitiated}}">
-            <ListView.itemTemplate>
+        <lv:RadListView items="{{ items }}" itemTap="onItemTap" class="list-group service-tab" pullToRefresh="true" row="1" pullToRefreshInitiated="{{onPullToRefreshInitiated}}"
+            itemLoading="makeBackgroundTransparent">
+            <lv:RadListView.itemTemplate>
                  <StackLayout class="list-group-item-2 ">
                         <!-- individual item from collection -->
                         <StackLayout backgroundColor="#ffface">
@@ -37,8 +38,8 @@
                     <!-- </GridLayout> -->
 
                 </StackLayout>
-            </ListView.itemTemplate>
-        </ListView>
+            </lv:RadListView.itemTemplate>
+        </lv:RadListView>
         <ActivityIndicator class="activity-indicator" busy="{{ isLoading }}" />
     </GridLayout>
 </Page>
