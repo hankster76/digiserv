@@ -1,0 +1,42 @@
+<Page 
+    class="page service-tab"
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <Label class="action-bar-title" text="Log In"></Label>
+    </ActionBar>
+    
+    <StackLayout orientation="vertical">
+        <Image src="~/images/digiserv.jpg" width="300" height="300"/>
+
+        <StackLayout class="form">
+        <!-- Option 1: An input with no label, and a bottom border -->
+            <StackLayout class="input-field">
+                <TextField hint="Enter username" class="input input-border" 
+                    text = "{{ username }}" style="background-color: white;"/>
+                <StackLayout class="hr-light"></StackLayout>
+                <TextField hint="Enter password" class="input input-border" 
+                    text = "{{ password }}" style="background-color: white;"/>
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout>
+            <Button text="Sign in" tap="signIn" class="btn btn-primary"/>
+        </StackLayout>
+
+        <StackLayout>
+            <Button text="Register" tap="register" class="btn btn-primary"/>
+        </StackLayout>
+
+        <StackLayout>
+            <Button text="Logout" tap="logOut" class="btn btn-primary"/>
+        </StackLayout>
+        <!--
+        <TextField id="email" text = "{{ email }}" hint="Email Address" keyboardType="email" autocorrect="false"
+        autocapitalizationType="none" style="background-color: white;" class="input input-border text-center"/>
+        <TextField hint="Password" text = "{{ password }}" secure="true" style="background-color: white;"/>
+        <Button text="Sign in" tap="signIn" />
+        <Button text="Sign up for Groceries" class="link" tap="register"/>-->
+   </StackLayout>
+</Page>
