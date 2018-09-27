@@ -1,11 +1,11 @@
 {
   "nativescript": {
     "id": "com.progress.demo.digiserv",
-    "tns-android": {
-      "version": "4.2.0"
-    },
     "tns-ios": {
       "version": "4.1.1"
+    },
+    "tns-android": {
+      "version": "4.2.0"
     }
   },
   "description": "NativeScript Application",
@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "kinvey-nativescript-sdk": "^3.11.6",
+    "nativescript-drawingpad": "^3.0.3",
     "nativescript-email": "^1.5.3",
     "nativescript-locate-address": "^1.0.2",
     "nativescript-phone": "^1.3.1",

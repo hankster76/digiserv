@@ -4,12 +4,13 @@ import { ObservableProperty } from "../../shared/observable-property-decorator";
 
 export class Task extends Observable {
     @ObservableProperty() id: string;
+    @ObservableProperty() statusCode: number;
     @ObservableProperty() ServiceType: string;
     @ObservableProperty() ServiceDate: string;
     @ObservableProperty() PartNum: string;
     @ObservableProperty() CustNum: string;
-    @ObservableProperty() CustName: number;
-    @ObservableProperty() Address: number;
+    @ObservableProperty() CustName: string;
+    @ObservableProperty() Address: string;
     @ObservableProperty() City: string;
     @ObservableProperty() State: string;
     @ObservableProperty() Zip: string;
@@ -25,6 +26,7 @@ export class Task extends Observable {
         
         this.id = options.id;
         this.TechNum = options.TechNum;
+        this.statusCode = options.statusCode;
         this.ServiceType = options.ServiceType;
         this.ServiceDate = options.ServiceDate;
         this.PartNum = options.PartNum

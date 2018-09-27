@@ -1,0 +1,17 @@
+<Page 
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:DrawingPad="nativescript-drawingpad" loaded="pageLoaded">
+    <ActionBar class="action-bar">
+        <NavigationButton ios:visibility="collapsed" />
+        <Label class="action-bar-title" text="Signature" horizontalAlignment="center" />
+    </ActionBar>
+    <ScrollView>
+        <StackLayout class="service-tab">
+            <DrawingPad:DrawingPad  backgroundColor="#FFFFFF" id="drawingPad" margin="10" height="280" penColor="{{ penColor }}" penWidth="{{ penWidth }}" />
+            <StackLayout orientation="horizontal">
+                <Button text="Submit" tap="{{ getMyDrawing }}" />
+                <Button text="Clear" tap="{{ clearMyDrawing }}" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</Page>
