@@ -11,15 +11,13 @@ var user = {
 var page;
 
 export function signIn(username: string, password: string): void {
-    console.log("Page Binding Context: " + JSON.stringify(page.bindingContext));
     
         const promise = Kinvey.User.login(page.bindingContext.username, page.bindingContext.password)
         .then(function (result) {
             console.log("Logged in: " + JSON.stringify(result));
             const homeFrame = getFrameById("home");
             console.log("Home Frame: " + homeFrame.parent.id);
-            //homeFrame.navigate("app/home/home-page");
-            //Page.
+            homeFrame.navigate("app/home/home-page");
             const topmostFrame: Frame = topmost();
             console.log("Topmost frame: " + topmostFrame.id);
         })
