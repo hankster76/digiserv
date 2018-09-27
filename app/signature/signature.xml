@@ -9,8 +9,8 @@
         <StackLayout class="service-tab">
             <DrawingPad:DrawingPad  backgroundColor="#FFFFFF" id="drawingPad" margin="10" height="280" penColor="{{ penColor }}" penWidth="{{ penWidth }}" />
             <StackLayout orientation="horizontal">
-                <Button text="Submit" tap="{{ getMyDrawing }}" />
-                <Button text="Clear" tap="{{ clearMyDrawing }}" />
+                <Button text="Submit" class="btn-primary btn-blue" tap="{{ getMyDrawing }}" />
+                <Button text="Clear" class="btn-primary btn-blue" tap="{{ clearMyDrawing }}" />
             </StackLayout>
         </StackLayout>
     </ScrollView>
