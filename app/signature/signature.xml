@@ -7,11 +7,14 @@
     </ActionBar>
     <ScrollView>
         <StackLayout class="service-tab">
+            <GridLayout columns="*">
+                <Label class="h2" color="white" textWrap="true" text="By signing here, I agree that the service was performed to my satisfaction"></Label>
+            </GridLayout>    
             <DrawingPad:DrawingPad  backgroundColor="#FFFFFF" id="drawingPad" margin="10" height="280" penColor="{{ penColor }}" penWidth="{{ penWidth }}" />
-            <StackLayout orientation="horizontal">
-                <Button text="Submit" class="btn-primary btn-blue" tap="{{ getMyDrawing }}" />
-                <Button text="Clear" class="btn-primary btn-blue" tap="{{ clearMyDrawing }}" />
-            </StackLayout>
+            <GridLayout columns="*, *">
+                <Button col="0" text="Submit" class="btn-primary" backgroundColor="#3D83B6" tap="{{ getMyDrawing }}"/>
+                <Button col="1" text="Clear" class="btn-primary" backgroundColor="#3D83B6" tap="{{ clearMyDrawing }}" />
+            </GridLayout> 
         </StackLayout>
     </ScrollView>
 </Page>

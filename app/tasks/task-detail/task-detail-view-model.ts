@@ -14,4 +14,11 @@ export class TaskDetailViewModel extends Observable {
     get task(): Task {
         return this._task;
     }
+    public acknowledgeJob() {
+        alert("Job is acknowledged.  Request necessary parts now");
+
+        // code here to update status code from 0 to 1
+
+    }
 }
+

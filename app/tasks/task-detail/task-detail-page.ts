@@ -3,7 +3,7 @@ import { EventData, View } from "ui/core/view";
 import { NavigatedData, Page } from "ui/page";
 import { TaskDetailViewModel } from "./task-detail-view-model";
 import { Task } from "../shared/task-model";
-
+0
 // geo-locator
 import {LocateAddress} from "nativescript-locate-address";
 
@@ -29,14 +29,30 @@ export function onNavigatingTo(args: NavigatedData) {
     //console.log("navigated data" + JSON.stringify(page.bindingContext));
 }
 
+export function serviceTap(args: EventData) {
+    //const view = <View>args.view;
+    //const page = <Page>view.page;
+    //const tappedItem = <Task>view.bindingContext;
+
+    console.log("serviceTap");
+    alert("You will be taken to the signature screen here to acknowledge that work was completed");
+
+    //page.frame.navigate({
+    //    moduleName: "../signature/signature",
+    //    context: tappedItem,
+    //    animated: true,
+    //    transition: {
+    //        name: "slide",
+    //        duration: 200,
+    //        curve: "ease"
+    //    }
+    //});
+}
+
 export function onBackButtonTap(args: EventData) {
     const view = args.object as View;
     const page = view.page as Page;
     page.frame.goBack();
-}
-
-export function onRequestTap() {
-    alert("Item has been Requested.  If out of stock you will be notified when it becomes available.");
 }
 
 // get object, concatenate string for address and call geo-locator on device

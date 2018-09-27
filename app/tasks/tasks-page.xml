@@ -12,31 +12,25 @@
             itemLoading="makeBackgroundTransparent">
             <lv:RadListView.itemTemplate>
                  <StackLayout class="list-group-item-2 ">
-                        <!-- individual item from collection -->
-                        <StackLayout backgroundColor="#ffface">
-                            <Label class="font-weight-bold p-l-10">
-                                <FormattedString>
-                                    <Span text="{{ ServiceType }}" color="red" />
-                                </FormattedString>
-                            </Label>
-                            <Label class="font-weight-bold p-l-10" >
-                                <FormattedString>
-                                    <Span text="{{ ServiceDate }}" />
-                                </FormattedString>
-                            </Label>
-                            <Label class="h3 p-l-10">
-                                <FormattedString>
-                                    <Span text="Customer:  "/>
-                                    <Span text="{{ CustName }}"/>
-                                </FormattedString>
-                            </Label>
-
-                        </StackLayout>
-
-                        <!-- line separator 
-                        <StackLayout row="1" class="hr-light m-t-5 m-b-5" colSpan="2" /> -->
-                    <!-- </GridLayout> -->
-
+                    <!-- individual item from collection -->
+                    <StackLayout backgroundColor="#ffface">
+                        <Label class="font-weight-bold p-l-10">
+                            <FormattedString>
+                                <Span text="{{ ServiceType }}" color="red" />
+                            </FormattedString>
+                        </Label>
+                        <Label class="font-weight-bold p-l-10" >
+                            <FormattedString>
+                                <Span text="{{ ServiceDate }}" />
+                            </FormattedString>
+                        </Label>
+                        <Label class="h3 p-l-10">
+                            <FormattedString>
+                                <Span text="Customer:  "/>
+                                <Span text="{{ CustName }}"/>
+                            </FormattedString>
+                        </Label>
+                    </StackLayout>
                 </StackLayout>
             </lv:RadListView.itemTemplate>
         </lv:RadListView>
