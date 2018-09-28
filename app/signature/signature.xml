@@ -12,8 +12,8 @@
             </GridLayout>    
             <DrawingPad:DrawingPad  backgroundColor="#FFFFFF" id="drawingPad" margin="10" height="280" penColor="{{ penColor }}" penWidth="{{ penWidth }}" />
             <GridLayout columns="*, *">
-                <Button col="0" text="Submit" class="btn-primary" backgroundColor="#3D83B6" tap="{{ getMyDrawing }}"/>
-                <Button col="1" text="Clear" class="btn-primary" backgroundColor="#3D83B6" tap="{{ clearMyDrawing }}" />
+                <Button col="0" text="Submit" class="btn-primary m-r-10" backgroundColor="#3D83B6" tap="{{ getMyDrawing }}"/>
+                <Button col="1" text="Clear" class="btn-primary m-l-10" backgroundColor="#3D83B6" tap="{{ clearMyDrawing }}" />
             </GridLayout> 
         </StackLayout>
     </ScrollView>
