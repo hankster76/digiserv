@@ -13,7 +13,7 @@
             </GridLayout> 
 
             <GridLayout rows="auto, auto, auto">
-                <Image src="{{ item.ImageURL }}" stretch="aspectFill" height="200" class="m-b-15" />
+                <Image src="{{ item.ImageURL }}" stretch="aspectFill" height="200" class="m-b-15 m-t-20" />
 
                 <StackLayout row="1" class="hr-light m-t-15 m-b-15"></StackLayout>
 
