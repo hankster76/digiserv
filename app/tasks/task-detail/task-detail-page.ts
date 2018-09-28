@@ -3,7 +3,7 @@ import { EventData, View } from "ui/core/view";
 import { NavigatedData, Page } from "ui/page";
 import { TaskDetailViewModel } from "./task-detail-view-model";
 import { Task } from "../shared/task-model";
-0
+import * as application from "application";
 // geo-locator
 import {LocateAddress} from "nativescript-locate-address";
 
@@ -24,29 +24,25 @@ export function onNavigatingTo(args: NavigatedData) {
     if (args.isBackNavigation) {
         return;
     }
+
+    application.getResources().colorHandler = function(status) {
+        if (status === "New") {
+            return "red";
+        } else if (status === "Acknowledged") {
+            return "purple";
+        } else {
+            return "green";
+        }
+    }
+
     const page = <Page>args.object;
     page.bindingContext = new TaskDetailViewModel(page.navigationContext);
     //console.log("navigated data" + JSON.stringify(page.bindingContext));
 }
 
 export function serviceTap(args: EventData) {
-    //const view = <View>args.view;
-    //const page = <Page>view.page;
-    //const tappedItem = <Task>view.bindingContext;
-
     console.log("serviceTap");
-    alert("You will be taken to the signature screen here to acknowledge that work was completed");
-
-    //page.frame.navigate({
-    //    moduleName: "../signature/signature",
-    //    context: tappedItem,
-    //    animated: true,
-    //    transition: {
-    //        name: "slide",
-    //        duration: 200,
-    //        curve: "ease"
-    //    }
-    //});
+    topmost().navigate("/signature/signature");
 }
 
 export function onBackButtonTap(args: EventData) {
@@ -59,7 +55,7 @@ export function onBackButtonTap(args: EventData) {
 export function onTapAddress(args) {
     var page = args.object;
     var task = page.bindingContext._task;
-    var addr = task.Address + ", " + task.City + ", " + task.State + ", " + task.Zip;
+    var addr = task.address + ", " + task.city + ", " + task.state + ", " + task.zip;
     //console.log("Address is " + addr);
     let locator = new LocateAddress();
     locator.locate({
@@ -75,7 +71,7 @@ export function onTapAddress(args) {
 export function call(args) {
     var page = args.object;
     var task = page.bindingContext._task;
-    var phnum = task.Phone;
+    var phnum = task.cellphone;
     //console.log("Ready to dial " + phnum);
 
     if (isAndroid) {
@@ -96,7 +92,7 @@ export function call(args) {
 export function mailTo(args) {
     var page = args.object;
     var task = page.bindingContext._task;
-    var addr = task.Email;
+    var addr = task.email;
     var msg: string;
     msg = "Hello, this is your DigiServ Technician.  I would like to talk to you about scheduling your appointment";
  

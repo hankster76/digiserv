@@ -2,7 +2,7 @@
     
     <ActionBar class="action-bar">
         <NavigationButton tap="onBackButtonTap" android.systemIcon="ic_menu_back" />
-        <Label class="action-bar-title" text="{{ task.ServiceType }}" horizontalAlignment="center" />
+        <Label class="action-bar-title" text="{{ task.custName }}" horizontalAlignment="center" />
     </ActionBar>  
     
     <ScrollView class="page-content">
@@ -14,37 +14,35 @@
 
         <GridLayout rows="*, *, *, *, *, *, *, *, *" columns="*, *">
             <Label text="Status:" col="0" row="0" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold"/>
-            <Label text="{{ task.statusCode }}" row="0" col="1" class="text p-b-10" />
+            <Label text="{{ task.status }}" color="{{ colorHandler(task.status) }}" row="0" col="1" class="text p-b-10 font-weight-bold" />
 
             <Label text="Service Type:" col="0" row="1" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold"/>
-            <Label text="{{ task.ServiceType }}" row="1" col="1" class="text p-b-10" />
+            <Label text="{{ task.tech_id }}" row="1" col="1" class="text p-b-10" />
 
             <Label text="Service Date:" col="0" row="2" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold" />
-            <Label text="{{ task.ServiceDate }}" row="2" col="1" class="text p-b-10" />
+            <Label text="{{ task.date }}" row="2" col="1" class="text p-b-10" />
             
-            <Label text="Part Number:" col="0" row="3" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold" />
-            <Label text="{{ task.PartNum }}" row="3" col="1" class="text p-b-10" />
-
             <Label text="Customer #:" col="0" row="4" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold" />
-            <Label text="{{ task.CustNum }}" row="4" col="1" class="text p-b-10" />
+            <Label text="{{ task.custID }}" row="4" col="1" class="text p-b-10" />
 
             <Label text="Customer Name:" col="0" row="5" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold" />
-            <Label text="{{ task.CustName }}" row="5" col="1" class="text p-b-10" />
+            <Label text="{{ task.custName }}" row="5" col="1" class="text p-b-10" />
             
             <GridLayout row="6" colSpan="2" rows="*, *, *, *" columns="*, *" tap="onTapAddress" >  
-                <Label text="Address:" row="0" col="0" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold" />
-                <Label text="{{ task.Address }}" row="0" col="1" class="text p-b-10" />
-                <Label text="(Touch to navigate)" row="1" col="0" class="p-l-15 p-b-10 m-r-20 text-danger font-weight-bold"/>
-                <Label text="{{ task.City }}" row="1" col="1" class="text p-b-10" />
-                <Label text="{{ task.State }}" row="2" col="1" class="text p-b-10" />
-                <Label text="{{ task.Zip }}" row="3" col="1" class="text p-b-10" />
+                <Label row="0" col="0" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold">
+                    <Span text="Address:" underline="true"></Span>
+                </Label>
+                <Label text="{{ task.address }}" row="0" col="1" class="text p-b-10" />
+                <Label text="{{ task.city }}" row="1" col="1" class="text p-b-10" />
+                <Label text="{{ task.state }}" row="2" col="1" class="text p-b-10" />
+                <Label text="{{ task.zip }}" row="3" col="1" class="text p-b-10" />
             </GridLayout>
 
             <Label text="Phone:" row="7" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold" />
-            <Label text="{{ task.Phone }}" row="7" col="1" class="text p-b-10" tap="call" />
+            <Label text="{{ task.cellphone }}" row="7" col="1" class="text p-b-10" tap="call" />
 
             <Label text="Email:" row="8" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold" />
-            <Label text="{{ task.Email }}" row="8" col="1" class="text p-b-10" tap="mailTo" />
+            <Label text="{{ task.email }}" row="8" col="1" class="text p-b-10" tap="mailTo" />
 
         </GridLayout>  
     </StackLayout>

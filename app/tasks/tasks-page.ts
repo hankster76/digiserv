@@ -6,7 +6,7 @@ import { TasksListViewModel } from "./tasks-view-model";
 import { Task } from "./shared/task-model";
 import { View } from "ui/core/view";
 import { ItemEventData } from "ui/list-view";
-
+import * as application from "application";
 import * as utils from "utils/utils";
 
 declare var UIColor: any;
@@ -18,6 +18,17 @@ export function onNavigatingTo(args: NavigatedData) {
 
     const page = <Page>args.object;
     const viewModel = new TasksListViewModel()
+
+    application.getResources().colorHandler = function(status) {
+        if (status === "New") {
+            return "red";
+        } else if (status === "Acknowledged") {
+            return "purple";
+        } else {
+            return "green";
+        }
+    }
+
 
     page.bindingContext = viewModel;
     viewModel.load();

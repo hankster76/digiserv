@@ -16,18 +16,18 @@
                     <StackLayout backgroundColor="#ffface">
                         <Label class="font-weight-bold p-l-10">
                             <FormattedString>
-                                <Span text="{{ ServiceType }}" color="red" />
+                                <Span text="{{ status }}" color="{{ colorHandler(status) }}" />
                             </FormattedString>
                         </Label>
                         <Label class="font-weight-bold p-l-10" >
                             <FormattedString>
-                                <Span text="{{ ServiceDate }}" />
+                                <Span text="{{ date }}" />
                             </FormattedString>
                         </Label>
                         <Label class="h3 p-l-10">
                             <FormattedString>
                                 <Span text="Customer:  "/>
-                                <Span text="{{ CustName }}"/>
+                                <Span text="{{ custName }}"/>
                             </FormattedString>
                         </Label>
                     </StackLayout>

@@ -5,18 +5,17 @@ import { File } from "file-system";
 import { Kinvey } from "kinvey-nativescript-sdk";
 
 const editableProperties = [
-    "TechNum",
-    "ServiceType",
-    "ServiceDate",
-    "PartNum",
-    "CustNum",
-    "CustName",
-    "Address",
-    "City",
-    "State",
-    "Zip",
-    "Phone",
-    "Email"
+    "status",
+    "tech_id",
+    "address",
+    "city",
+    "state",
+    "zip",
+    "date",
+    "cellphone",
+    "email",
+    "custName",
+    "custID"
 ];
 
 export class TaskService {
@@ -32,7 +31,7 @@ export class TaskService {
     }
 
     private allTasks: Array<Task> = [];
-    private taskStore = Kinvey.DataStore.collection<any>("ServiceTasks");
+    private taskStore = Kinvey.DataStore.collection<any>("appointments");
 
     constructor() {
         if (TaskService._instance) {
@@ -51,13 +50,13 @@ export class TaskService {
         }).then(() => {
             //console.log(".find");
             const sortByNameQuery = new Kinvey.Query();
-            sortByNameQuery.ascending("TechNum");
+            sortByNameQuery.ascending("tech_id");
             const stream = this.taskStore.find(sortByNameQuery);
             return stream.toPromise();
         }).then((data) => {
             this.allTasks = [];
             data.forEach((taskData: any) => {
-                taskData.id = taskData._id;
+                taskData.id = taskData.id;
                 const item = new Task(taskData);
                 this.allTasks.push(taskData);
             });
@@ -71,47 +70,11 @@ export class TaskService {
         return this.taskStore.save(updateModel);
     }
 
-    uploadImage(remoteFullPath: string, localFullPath: string): Promise<any> {
-        const imageFile = File.fromPath(localFullPath);
-        const imageContent = imageFile.readSync();
-
-        const metadata = {
-            filename: imageFile.name,
-            mimeType: this.getMimeType(imageFile.extension),
-            size: imageContent.length,
-            public: true
-        };
-
-        return Kinvey.Files.upload(imageFile, metadata, { timeout: 2147483647 })
-            .then((uploadedFile: any) => {
-                const query = new Kinvey.Query();
-                query.equalTo("_id", uploadedFile._id);
-
-                return Kinvey.Files.find(query);
-            })
-            .then((files: Array<any>) => {
-                if (files && files.length) {
-                    const file = files[0];
-                    file.url = file._downloadURL;
-
-                    return file;
-                } else {
-                    Promise.reject(new Error("No items with the given ID could be found."));
-                }
-            });
-    }
-
     private login(): Promise<any> {
         if (!!Kinvey.User.getActiveUser()) {
             return Promise.resolve();
         } else {
             return Kinvey.User.login(Config.kinveyUsername, Config.kinveyPassword);
         }
-    }
-
-    private getMimeType(imageExtension: string): string {
-        const extension = imageExtension === "jpg" ? "jpeg" : imageExtension;
-
-        return "image/" + extension.replace(/\./g, "");
     }
 }

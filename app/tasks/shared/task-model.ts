@@ -1,56 +1,48 @@
 import { Observable } from "data/observable";
-
 import { ObservableProperty } from "../../shared/observable-property-decorator";
 
 export class Task extends Observable {
     @ObservableProperty() id: string;
-    @ObservableProperty() statusCode: number;
-    @ObservableProperty() ServiceType: string;
-    @ObservableProperty() ServiceDate: string;
-    @ObservableProperty() PartNum: string;
-    @ObservableProperty() CustNum: string;
-    @ObservableProperty() CustName: string;
-    @ObservableProperty() Address: string;
-    @ObservableProperty() City: string;
-    @ObservableProperty() State: string;
-    @ObservableProperty() Zip: string;
-    @ObservableProperty() Phone: string;
-    @ObservableProperty() Email: string;
-
-    private _TechNum: string;
-
+    @ObservableProperty() status: string;
+    @ObservableProperty() tech_id: string;
+    @ObservableProperty() address: string;
+    @ObservableProperty() city: string;
+    @ObservableProperty() state: string;
+    @ObservableProperty() zip: string;
+    @ObservableProperty() date: string;
+    @ObservableProperty() cellphone: string;
+    @ObservableProperty() email: string;
+    @ObservableProperty() custName: string;
+    @ObservableProperty() custID: string;
+    
     constructor(options: any) {
         super();
 
-        this._TechNum = options.TechNum;
-        
         this.id = options.id;
-        this.TechNum = options.TechNum;
-        this.statusCode = options.statusCode;
-        this.ServiceType = options.ServiceType;
-        this.ServiceDate = options.ServiceDate;
-        this.PartNum = options.PartNum
-        this.CustNum = options.CustNum;
-        this.CustName = options.CustName;
-        this.Address = options.Address;
-        this.City = options.City;
-        this.State = options.State;
-        this.Zip = options.Zip;
-        this.Phone = options.Phone;
-        this.Email = options.Email;
+        this.status = options.status;
+        this.tech_id = options.tech_id;
+        this.address = options.address;
+        this.city = options.city;
+        this.state = options.state;
+        this.zip = options.zip;
+        this.date = options.date;
+        this.cellphone = options.cellphone;
+        this.email = options.email;
+        this.custName = options.custName;
+        this.custID = options.custID;
     }
 
-    get TechNum(): string {
-        return this._TechNum;
+    get Tech_Id(): string {
+        return this.tech_id;
     }
 
-    set TechNum(value: string) {
-        if (this._TechNum === value) {
+    set Tech_Id(value: string) {
+        if (this.Tech_Id === value) {
             return;
         }
 
-        this._TechNum = value;
-        this.notifyPropertyChange("TechNum", value);
+        this.Tech_Id = value;
+        this.notifyPropertyChange("Tech_Id", value);
 
     }
 }
