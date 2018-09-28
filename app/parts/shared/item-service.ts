@@ -35,7 +35,7 @@ export class ItemService {
     }
 
     private allItems: Array<Item> = [];
-    private itemsStore = Kinvey.DataStore.collection<any>("ItemData");
+    private itemsStore = Kinvey.DataStore.collection<any>("ItemData", Kinvey.DataStoreType.Network);
 
     constructor() {
         if (ItemService._instance) {
@@ -46,7 +46,8 @@ export class ItemService {
     }
 
     load(): Promise<any> {
-        return this.login().then(() => {
+        console.log("Inside load method of item-service");
+        //return this.login().then(() => {
         // adding logic to subscribe to push notification
         Push.register({
             android: {
@@ -68,7 +69,24 @@ export class ItemService {
         });
 
 
-            return this.itemsStore.sync();
+            //return this.itemsStore.sync();
+
+            const sortByNameQuery = new Kinvey.Query();
+            sortByNameQuery.ascending("ItemNum");
+            const stream = this.itemsStore.find(sortByNameQuery);
+            return stream.toPromise()
+            .then((data) => {
+                this.allItems = [];
+                data.forEach((itemData: any) => {
+                    itemData.id = itemData._id;
+                    const item = new Item(itemData);
+                    this.allItems.push(item);
+                });
+                return this.allItems;
+            });
+            //return this.allItems;
+
+            /*
         }).catch((error) => {
             console.log("ERROR = " + error);
         }).then(() => {
@@ -84,7 +102,7 @@ export class ItemService {
                 this.allItems.push(item);
             });
             return this.allItems;
-        });
+        });*/
     }
 
     update(itemModel: Item): Promise<any> {

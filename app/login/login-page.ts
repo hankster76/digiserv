@@ -13,13 +13,10 @@ var page;
 export function signIn(username: string, password: string): void {
     
         const promise = Kinvey.User.login(page.bindingContext.username, page.bindingContext.password)
-        .then(function (result) {
-            console.log("Logged in: " + JSON.stringify(result));
-            const homeFrame = getFrameById("home");
-            console.log("Home Frame: " + homeFrame.parent.id);
-            homeFrame.navigate("app/home/home-page");
+        .then(function (result: any) {
+            console.log("Logged in as: " + result.data.username);
             const topmostFrame: Frame = topmost();
-            console.log("Topmost frame: " + topmostFrame.id);
+            topmost().navigate("home/home-page");
         })
         .catch(function (error) {
             console.log("Error: " + JSON.stringify(error));
@@ -28,8 +25,8 @@ export function signIn(username: string, password: string): void {
 
 export function logOut(): void {
     const promise = Kinvey.User.logout()
-    .then(function (result) {
-        console.log("Result: " + JSON.stringify(result));
+    .then(function (result: any) {
+        console.log("Logged out as: " + result.data.username);
     })
     .catch(function (error) {
         console.log("Error: " + JSON.stringify(error));

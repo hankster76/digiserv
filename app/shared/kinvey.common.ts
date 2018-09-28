@@ -26,4 +26,13 @@ Kinvey.ping()
     .catch(function(error) {
         console.log('Kinvey Ping Failed. Response: ' + JSON.stringify(error));
     });
+
+export function isLoggedIn(): boolean {
+        if (!!Kinvey.User.getActiveUser()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
   

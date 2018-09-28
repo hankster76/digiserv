@@ -32,7 +32,7 @@ export class TaskService {
     }
 
     private allTasks: Array<Task> = [];
-    private taskStore = Kinvey.DataStore.collection<any>("ServiceTasks");
+    private taskStore = Kinvey.DataStore.collection<any>("ServiceTasks", Kinvey.DataStoreType.Network);
 
     constructor() {
         if (TaskService._instance) {
@@ -43,6 +43,21 @@ export class TaskService {
     }
 
     load(): Promise<any> {
+
+        const sortByNameQuery = new Kinvey.Query();
+        sortByNameQuery.ascending("TechNum");
+        const stream = this.taskStore.find(sortByNameQuery);
+        return stream.toPromise()
+        .then((data) => {
+            this.allTasks = [];
+            data.forEach((taskData: any) => {
+                taskData.id = taskData._id;
+                const item = new Task(taskData);
+                this.allTasks.push(taskData);
+            });
+            return this.allTasks;
+        });
+        /*
         return this.login().then(() => {
             //console.log("in load");
             return this.taskStore.sync();
@@ -62,7 +77,7 @@ export class TaskService {
                 this.allTasks.push(taskData);
             });
             return this.allTasks;
-        });
+        });*/
     }
 
     update(taskModel: Task): Promise<any> {
