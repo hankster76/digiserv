@@ -8,8 +8,8 @@
     <ScrollView class="page-content">
     <StackLayout>
         <GridLayout columns="*, *">
-            <Button col="0" text="Acknowledge" class="btn-primary" backgroundColor="#3D83B6" tap="{{ acknowledgeJob }}"/>
-            <Button col="1" text="Service" class="btn-primary" backgroundColor="#3D83B6" tap="serviceTap"/>
+            <Button col="0" text="Acknowledge" class="btn-primary m-r-20" backgroundColor="#3D83B6" tap="{{ acknowledgeJob }}"/>
+            <Button col="1" text="Service" class="btn-primary m-l-20" backgroundColor="#3D83B6" tap="serviceTap"/>
         </GridLayout> 
 
         <GridLayout rows="*, *, *, *, *, *, *, *, *" columns="*, *">
