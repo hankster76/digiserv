@@ -37,7 +37,7 @@ export function onNavigatingTo(args: NavigatedData) {
 
     const page = <Page>args.object;
     page.bindingContext = new TaskDetailViewModel(page.navigationContext);
-    //console.log("navigated data" + JSON.stringify(page.bindingContext));
+    console.log("navigated data" + JSON.stringify(page.bindingContext));
 }
 
 export function serviceTap(args: EventData) {

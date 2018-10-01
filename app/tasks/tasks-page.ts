@@ -39,7 +39,7 @@ export function onItemTap(args: ItemEventData) {
     const view = <View>args.view;
     const page = <Page>view.page;
     const tappedItem = <Task>view.bindingContext;
-
+    console.log("tapped item is " + JSON.stringify(tappedItem));
     //console.log("onItemTap");
 
     page.frame.navigate({
