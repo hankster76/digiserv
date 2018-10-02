@@ -2,23 +2,25 @@ import { Observable } from "data/observable";
 import { ObservableProperty } from "../../shared/observable-property-decorator";
 
 export class Task extends Observable {
-    @ObservableProperty() id: string;
-    @ObservableProperty() status: string;
-    @ObservableProperty() tech_id: string;
-    @ObservableProperty() address: string;
-    @ObservableProperty() city: string;
-    @ObservableProperty() state: string;
-    @ObservableProperty() zip: string;
-    @ObservableProperty() date: string;
-    @ObservableProperty() cellphone: string;
-    @ObservableProperty() email: string;
-    @ObservableProperty() custName: string;
-    @ObservableProperty() custID: string;
+    _id: string;
+    id: string;
+    status: string;
+    tech_id: string;
+    address: string;
+    city: string;
+    state: string;
+    zip: string;
+    date: string;
+    cellphone: string;
+    email: string;
+    custName: string;
+    custID: string;
     
     constructor(options: any) {
         super();
 
-        this.id = options.id;
+        console.log("Options: " + JSON.stringify(options));
+        this._id = options._id;
         this.status = options.status;
         this.tech_id = options.tech_id;
         this.address = options.address;

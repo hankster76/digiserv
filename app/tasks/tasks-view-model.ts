@@ -24,7 +24,9 @@ export class TasksListViewModel extends Observable {
         this.isLoading = true;
         this._taskService.load()
             .then((items: Array<Task>) => {
+                console.log("Gets inside observable array area: " + JSON.stringify(items));
                 this.items = new ObservableArray(items);
+                console.log("Observable items: " + JSON.stringify(this.items));
                 this.isLoading = false;
             })
             .catch(() => {

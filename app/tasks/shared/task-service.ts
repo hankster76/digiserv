@@ -27,11 +27,11 @@ export class TaskService {
 
     private static cloneUpdateModel(task: Task): object {
         // tslint:disable-next-line:ban-comma-operator
-        return editableProperties.reduce((a, e) => (a[e] = task[e], a), { _id: task.id });
+        return editableProperties.reduce((a, e) => (a[e] = task[e], a), { _id: task._id });
     }
 
     private allTasks: Array<Task> = [];
-    private taskStore = Kinvey.DataStore.collection<any>("appointments");
+    private taskStore = Kinvey.DataStore.collection<any>("appointments", Kinvey.DataStoreType.Network);
 
     constructor() {
         if (TaskService._instance) {
@@ -44,11 +44,6 @@ export class TaskService {
     load(): Promise<any> {
         return this.login().then(() => {
             //console.log("in load");
-            return this.taskStore.sync();
-        }).catch((error) => {
-            console.log("ERROR = " + error);
-        }).then(() => {
-            //console.log(".find");
             const sortByNameQuery = new Kinvey.Query();
             sortByNameQuery.ascending("tech_id");
             const stream = this.taskStore.find(sortByNameQuery);
@@ -56,18 +51,25 @@ export class TaskService {
         }).then((data) => {
             this.allTasks = [];
             data.forEach((taskData: any) => {
-                taskData.id = taskData.id;
                 const item = new Task(taskData);
-                this.allTasks.push(taskData);
+                console.log("Item before pushing is: " + JSON.stringify(item));
+                this.allTasks.push(item);
             });
             return this.allTasks;
         });
     }
 
-    update(taskModel: Task): Promise<any> {
-        const updateModel = TaskService.cloneUpdateModel(taskModel);
+    update(taskModel: Task): void {
 
-        return this.taskStore.save(updateModel);
+        console.log("TaskModel before save is: " + JSON.stringify(taskModel));
+        //delete taskModel._id;
+        const promise = this.taskStore.save(taskModel)
+        .then(function (data) {
+            console.log("Saved Data: " + JSON.stringify(data));
+        })
+        .catch((error) => {
+            console.log("Saving Error: " + JSON.stringify(error));
+        })
     }
 
     private login(): Promise<any> {
