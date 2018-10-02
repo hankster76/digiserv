@@ -18,8 +18,6 @@ export class Task extends Observable {
     
     constructor(options: any) {
         super();
-
-        console.log("Options: " + JSON.stringify(options));
         this._id = options._id;
         this.status = options.status;
         this.tech_id = options.tech_id;

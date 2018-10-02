@@ -3,9 +3,11 @@ import { EventData, View } from "ui/core/view";
 import { NavigatedData, Page } from "ui/page";
 import { TaskDetailViewModel } from "./task-detail-view-model";
 import { Task } from "../shared/task-model";
+import { TaskService } from "../shared/task-service";
 import * as application from "application";
 // geo-locator
 import {LocateAddress} from "nativescript-locate-address";
+import { fromObject } from "tns-core-modules/data/observable";
 
 // phone dialer
 import { isAndroid } from "platform";
@@ -86,7 +88,7 @@ export function call(args) {
     } else {
       TNSPhone.dial(String(phnum), false);
     }
-}  
+}
 
 // get object, extract email address and initiate email send
 export function mailTo(args) {

@@ -52,7 +52,6 @@ export class TaskService {
             this.allTasks = [];
             data.forEach((taskData: any) => {
                 const item = new Task(taskData);
-                console.log("Item before pushing is: " + JSON.stringify(item));
                 this.allTasks.push(item);
             });
             return this.allTasks;
@@ -61,7 +60,6 @@ export class TaskService {
 
     update(taskModel: Task): void {
 
-        console.log("TaskModel before save is: " + JSON.stringify(taskModel));
         //delete taskModel._id;
         const promise = this.taskStore.save(taskModel)
         .then(function (data) {
