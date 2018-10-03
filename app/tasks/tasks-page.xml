@@ -23,6 +23,11 @@
                         </Label>
                         <Label class="font-weight-bold p-l-10" >
                             <FormattedString>
+                                <Span text="{{ serviceType }}" />
+                            </FormattedString>
+                        </Label>
+                        <Label class="font-weight-bold p-l-10" >
+                            <FormattedString>
                                 <Span text="{{ dateHandler(date) }}" />
                             </FormattedString>
                         </Label>

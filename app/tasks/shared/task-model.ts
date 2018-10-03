@@ -15,6 +15,7 @@ export class Task extends Observable {
     email: string;
     custName: string;
     custID: string;
+    serviceType: string;
     
     constructor(options: any) {
         super();
@@ -30,6 +31,7 @@ export class Task extends Observable {
         this.email = options.email;
         this.custName = options.custName;
         this.custID = options.custID;
+        this.serviceType = options.serviceType;
     }
 
     get Tech_Id(): string {

@@ -15,7 +15,8 @@ const editableProperties = [
     "cellphone",
     "email",
     "custName",
-    "custID"
+    "custID",
+    "serviceType"
 ];
 
 export class TaskService {
