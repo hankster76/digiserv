@@ -21,7 +21,7 @@ export class TaskDetailViewModel extends Observable {
     public acknowledgeJob() {
         console.log("task is " + JSON.stringify(this._task));
         alert("Job is acknowledged.  Request necessary parts now");
-        this._task.status = "Acknowledged";
+        this._task.status = "2";
         console.log("task is " + JSON.stringify(this._task));
         
         // code here to update status code from 0 to 1

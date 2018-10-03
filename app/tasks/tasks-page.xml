@@ -16,7 +16,7 @@
                     <StackLayout backgroundColor="#ffface">
                         <Label class="font-weight-bold p-l-10">
                             <FormattedString>
-                                <Span text="{{ status }}" color="{{ colorHandler(status) }}" />
+                                <Span text="{{ statusHandler(status) }}" color="{{ colorHandler(status) }}" />
                             </FormattedString>
                         </Label>
                         <Label class="font-weight-bold p-l-10" >
@@ -28,6 +28,12 @@
                             <FormattedString>
                                 <Span text="Customer:  "/>
                                 <Span text="{{ custName }}"/>
+                            </FormattedString>
+                        </Label>
+                        <Label class="h3 p-l-10">
+                            <FormattedString>
+                                <Span text="Tech ID:  "/>
+                                <Span text="{{ tech_id }}"/>
                             </FormattedString>
                         </Label>
                     </StackLayout>

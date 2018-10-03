@@ -45,7 +45,7 @@ export class TaskService {
         return this.login().then(() => {
             //console.log("in load");
             const sortByNameQuery = new Kinvey.Query();
-            sortByNameQuery.ascending("tech_id");
+            sortByNameQuery.ascending("tech_id, status");
             const stream = this.taskStore.find(sortByNameQuery);
             return stream.toPromise();
         }).then((data) => {
