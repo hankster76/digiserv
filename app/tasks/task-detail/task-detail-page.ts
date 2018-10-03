@@ -28,20 +28,31 @@ export function onNavigatingTo(args: NavigatedData) {
     }
 
     application.getResources().colorHandler = function(status) {
-        if (status === "New") {
+        if (status === "1") {
             return "red";
-        } else if (status === "Acknowledged") {
+        } else if (status === "2") {
             return "purple";
         } else {
             return "green";
         }
     }
 
+    application.getResources().statusHandler = function(status) {
+        if (status === "1") {
+            return "New";
+        } else if (status === "2") {
+            return "Acknowledged";
+        } else {
+            return "Complete";
+        }
+    }
+
+
     const page = <Page>args.object;
     page.bindingContext = new TaskDetailViewModel(page.navigationContext);
 }
 
-export function serviceTap(args: EventData) {
+export function serviceTap(args: NavigatedData) {
     console.log("serviceTap");
     topmost().navigate("/signature/signature");
 }

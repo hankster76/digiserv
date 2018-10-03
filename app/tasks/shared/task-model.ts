@@ -14,7 +14,8 @@ export class Task extends Observable {
     @ObservableProperty() email: string;
     @ObservableProperty() custName: string;
     @ObservableProperty() custID: string;
-    
+    @ObservableProperty() serviceType: string;
+        
     constructor(options: any) {
         super();
         this.id = options._id;
@@ -29,5 +30,6 @@ export class Task extends Observable {
         this.email = options.email;
         this.custName = options.custName;
         this.custID = options.custID;
+        this.serviceType = options.serviceType;
     }
 }

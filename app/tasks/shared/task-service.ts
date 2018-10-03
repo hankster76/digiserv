@@ -15,7 +15,8 @@ const editableProperties = [
     "cellphone",
     "email",
     "custName",
-    "custID"
+    "custID",
+    "serviceType"
 ];
 
 export class TaskService {
@@ -45,7 +46,7 @@ export class TaskService {
     load(): Promise<any> {
         return this.login().then(() => {
             const sortByNameQuery = new Kinvey.Query();
-            sortByNameQuery.ascending("tech_id");
+            sortByNameQuery.ascending("tech_id, status");
             const stream = this.taskStore.find(sortByNameQuery);
             return stream.toPromise();
         }).then((data) => {

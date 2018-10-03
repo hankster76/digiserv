@@ -20,7 +20,7 @@ export class TasksListViewModel extends Observable {
     }
 
     load(): void {
-        //console.log("ViewModel Load");
+        console.log("ViewModel Load");
         this.isLoading = true;
         this._taskService.load()
             .then((items: Array<Task>) => {

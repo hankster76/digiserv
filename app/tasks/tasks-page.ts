@@ -12,23 +12,35 @@ import * as utils from "utils/utils";
 declare var UIColor: any;
 
 export function onNavigatingTo(args: NavigatedData) {
-    Push.onNotification((data: any) => {
-        alert(data.body);
-    });
+
+    console.log("onNavigatingTo");
 
     const page = <Page>args.object;
     const viewModel = new TasksListViewModel()
 
     application.getResources().colorHandler = function(status) {
-        if (status === "New") {
+        if (status === "1") {
             return "red";
-        } else if (status === "Acknowledged") {
+        } else if (status === "2") {
             return "purple";
         } else {
             return "green";
         }
     }
 
+    application.getResources().statusHandler = function(status) {
+        if (status === "1") {
+            return "New";
+        } else if (status === "2") {
+            return "Acknowledged";
+        } else {
+            return "Complete";
+        }
+    }
+
+    application.getResources().dateHandler = function(date) {
+        return date.substring(0,10);
+    }
 
     page.bindingContext = viewModel;
     viewModel.load();

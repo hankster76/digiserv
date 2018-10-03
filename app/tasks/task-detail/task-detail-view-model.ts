@@ -3,6 +3,9 @@ import { Task } from "../shared/task-model";
 import { SyncEntity } from "kinvey-nativescript-sdk";
 import { ItemEventData } from "ui/list-view";
 import { TaskService } from "../shared/task-service";
+import { topmost } from "ui/frame";
+import { NavigatedData, Page } from "ui/page";
+import { View } from "ui/core/view";
 
 /* ***********************************************************
 * This is the item details view model.
