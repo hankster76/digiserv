@@ -20,13 +20,13 @@ export class TasksListViewModel extends Observable {
     }
 
     load(): void {
-        //console.log("ViewModel Load");
+        console.log("ViewModel Load");
         this.isLoading = true;
         this._taskService.load()
             .then((items: Array<Task>) => {
-                console.log("Gets inside observable array area: " + JSON.stringify(items));
+                //console.log("Gets inside observable array area: " + JSON.stringify(items));
                 this.items = new ObservableArray(items);
-                console.log("Observable items: " + JSON.stringify(this.items));
+                //console.log("Observable items: " + JSON.stringify(this.items));
                 this.isLoading = false;
             })
             .catch(() => {

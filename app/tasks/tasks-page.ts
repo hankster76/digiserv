@@ -12,9 +12,8 @@ import * as utils from "utils/utils";
 declare var UIColor: any;
 
 export function onNavigatingTo(args: NavigatedData) {
-    Push.onNotification((data: any) => {
-        alert(data.body);
-    });
+
+    console.log("onNavigatingTo");
 
     const page = <Page>args.object;
     const viewModel = new TasksListViewModel()
@@ -38,7 +37,6 @@ export function onNavigatingTo(args: NavigatedData) {
             return "Complete";
         }
     }
-
 
     page.bindingContext = viewModel;
     viewModel.load();
