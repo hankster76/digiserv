@@ -14,19 +14,19 @@
 
         <GridLayout rows="*, *, *, *, *, *, *, *, *" columns="*, *">
             <Label text="Status:" col="0" row="0" class="p-l-15 p-b-10 m-r-20 m-t-20 text-secondary font-weight-bold"/>
-            <Label text="{{ _task.status }}" color="{{ colorHandler(task.status) }}" row="0" col="1" class="text p-b-10 m-t-20 font-weight-bold" />
+            <Label text="{{ task.status }}" color="{{ colorHandler(task.status) }}" row="0" col="1" class="text p-b-10 m-t-20 font-weight-bold" />
 
             <Label text="Service Type:" col="0" row="1" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold"/>
-            <Label text="{{ _task.tech_id }}" row="1" col="1" class="text p-b-10" />
+            <Label text="{{ task.tech_id }}" row="1" col="1" class="text p-b-10" />
 
             <Label text="Service Date:" col="0" row="2" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold" />
-            <Label text="{{ _task.date }}" row="2" col="1" class="text p-b-10" />
+            <Label text="{{ task.date }}" row="2" col="1" class="text p-b-10" />
             
             <Label text="Customer #:" col="0" row="4" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold" />
-            <Label text="{{ _task.custID }}" row="4" col="1" class="text p-b-10" />
+            <Label text="{{ task.custID }}" row="4" col="1" class="text p-b-10" />
 
             <Label text="Customer Name:" col="0" row="5" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold" />
-            <Label text="{{ _task.custName }}" row="5" col="1" class="text p-b-10" />
+            <Label text="{{ task.custName }}" row="5" col="1" class="text p-b-10" />
             
             <GridLayout row="6" colSpan="2" rows="*, *, *, *" columns="*, *" tap="onTapAddress" >  
                 <Label row="0" col="0" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold">

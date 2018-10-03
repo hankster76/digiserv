@@ -25,9 +25,10 @@ export class TaskService {
 
     private static _instance: TaskService = new TaskService();
 
+    
     private static cloneUpdateModel(task: Task): object {
         // tslint:disable-next-line:ban-comma-operator
-        return editableProperties.reduce((a, e) => (a[e] = task[e], a), { _id: task._id });
+        return editableProperties.reduce((a, e) => (a[e] = task[e], a), { _id: task.id });
     }
 
     private allTasks: Array<Task> = [];
@@ -43,7 +44,6 @@ export class TaskService {
 
     load(): Promise<any> {
         return this.login().then(() => {
-            //console.log("in load");
             const sortByNameQuery = new Kinvey.Query();
             sortByNameQuery.ascending("tech_id");
             const stream = this.taskStore.find(sortByNameQuery);
@@ -59,9 +59,8 @@ export class TaskService {
     }
 
     update(taskModel: Task): void {
-
-        //delete taskModel._id;
-        const promise = this.taskStore.save(taskModel)
+        const updateModel = TaskService.cloneUpdateModel(taskModel);
+        const promise = this.taskStore.save(updateModel)
         .then(function (data) {
             console.log("Saved Data: " + JSON.stringify(data));
         })

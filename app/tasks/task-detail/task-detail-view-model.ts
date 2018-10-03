@@ -13,19 +13,18 @@ export class TaskDetailViewModel extends Observable {
         
     constructor(private _task: Task) {
         super();
+        this._taskService = TaskService.getInstance();
     }
 
+    
     get task(): Task {
         return this._task;
     }
     public acknowledgeJob() {
-        console.log("task is " + JSON.stringify(this._task));
         alert("Job is acknowledged.  Request necessary parts now");
-        this._task.status = "Acknowledged";
-        console.log("task is " + JSON.stringify(this._task));
+        this._task.status = "2";
         
         // code here to update status code from 0 to 1
-        this._taskService = TaskService.getInstance();
         this._taskService.update(this._task);
     }
 }
