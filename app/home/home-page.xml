@@ -13,9 +13,9 @@
     <StackLayout class="form">
         <Label class="h2 text-center m-t-20 m-b-20" color="white" textWrap="true" text="Welcome to the Digiserv Technician App"></Label>
         <StackLayout class="input-field m-t-20">
-            <TextField hint="Enter User Name" class="h3 input-border" style="background-color: white;"/>
+            <TextField hint="Enter User Name" text="{{ username }}" class="h3 input-border" style="background-color: white;"/>
             <StackLayout class="hr-light"></StackLayout>
-            <TextField hint="Enter Password" secure="true" class="h3 input-border" style="background-color: white;"/>
+            <TextField hint="Enter Password" text="{{ password }}" secure="true" class="h3 input-border" style="background-color: white;"/>
             <StackLayout>
                 <Button text="Sign in" tap="signIn" class="btn btn-primary"/>
             </StackLayout>
