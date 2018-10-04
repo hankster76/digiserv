@@ -38,10 +38,6 @@ export function onNavigatingTo(args: NavigatedData) {
         }
     }
 
-    application.getResources().dateHandler = function(date) {
-        return date.substring(0,10);
-    }
-
     page.bindingContext = viewModel;
     viewModel.load();
     

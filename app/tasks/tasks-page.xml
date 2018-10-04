@@ -28,7 +28,7 @@
                         </Label>
                         <Label class="font-weight-bold p-l-10" >
                             <FormattedString>
-                                <Span text="{{ dateHandler(date) }}" />
+                                <Span text="{{ date }}" />
                             </FormattedString>
                         </Label>
                     </StackLayout>
