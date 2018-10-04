@@ -4,12 +4,14 @@
     xmlns="http://schemas.nativescript.org/tns.xsd">
 
     <ActionBar class="action-bar">
-        <Label class="action-bar-title" text="DigiServ Technician App"></Label>
+        <StackLayout orientation="horizontal" ios:horizontalAlignment="center" android:horizontalAlignment="left">
+            <Image src="~/images/digiserv.jpg" width="50" height="50"></Image>
+            <Label class="action-bar-title m-l-20" text="DigiServ Technician App"></Label>
+        </StackLayout>
     </ActionBar>
 
     
     <GridLayout class="page-content">
-        <Image src="~/images/digiserv.jpg" width="300" height="300"></Image>
-<!--        <Label class="h2 text-center" color="white" textWrap="true" text="Welcome to the Digiserv Technician App"></Label> -->
+        <Label class="h2 text-center m-t-20" color="white" textWrap="true" text="Welcome to the Digiserv Technician App"></Label>
     </GridLayout>
 </Page>

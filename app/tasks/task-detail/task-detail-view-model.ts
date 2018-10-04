@@ -29,6 +29,7 @@ export class TaskDetailViewModel extends Observable {
         
         // code here to update status code from 0 to 1
         this._taskService.update(this._task);
+
     }
 }
 
