@@ -8,7 +8,7 @@ var user = {
     username: Config.kinveyUsername,
     password: Config.kinveyPassword
 }
-
+var isSignedIn: boolean;
 var page;
 
 export function signIn(username: string, password: string): void {
@@ -18,7 +18,9 @@ export function signIn(username: string, password: string): void {
         .then(function (result: any) {
             console.log("Logged in as: " + result.data.username);
             const topmostFrame: Frame = topmost();
-            topmost().navigate("tasks/tasks-page");
+            isSignedIn = true;
+            topmost().goBack;
+            //topmost().navigate("tasks/tasks-page");
         })
         .catch(function (error) {
             console.log("Error: " + JSON.stringify(error));
@@ -27,6 +29,7 @@ export function signIn(username: string, password: string): void {
 }
 
 export function logOut(): Promise<any> {
+    console.log("log out");
     return Kinvey.User.logout();
 //    const promise = Kinvey.User.logout()
 //.then(function (result: any) {
@@ -41,4 +44,15 @@ export function onNavigatingTo(args: NavigatedData) {
     console.log("onNavigatingTo");
     page = <Page>args.object;
     page.bindingContext = user;
+    logOut();
+    isSignedIn = false;
+}
+
+export function loggedStatus() {
+    console.log("signed in " + isSignedIn);
+    if (isSignedIn) { 
+        return "Sign Out";
+    } else {
+        return "Sign In";
+    }
 }

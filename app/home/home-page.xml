@@ -17,7 +17,7 @@
             <StackLayout class="hr-light"></StackLayout>
             <TextField hint="Enter Password" text="{{ password }}" secure="true" class="h3 input-border" style="background-color: white;"/>
             <StackLayout>
-                <Button text="Sign in" tap="signIn" class="btn btn-primary"/>
+                <Button text="Sign In" tap="signIn" class="btn btn-primary"/>
             </StackLayout>
         </StackLayout>
     </StackLayout>
