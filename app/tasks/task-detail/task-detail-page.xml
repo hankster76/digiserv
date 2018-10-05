@@ -14,7 +14,7 @@
 
         <GridLayout rows="*, *, *, *, *, *, *, *, *" columns="*, *">
             <Label text="Status:" col="0" row="0" class="p-l-15 p-b-10 m-r-20 m-t-20 text-secondary font-weight-bold"/>
-            <Label text="{{ statusHandler(task.status) }}" color="{{ colorHandler(task.status) }}" row="0" col="1" class="text p-b-10 m-t-20 font-weight-bold" />
+            <Label text="{{ statusText }}" color="{{ statusColor }}" row="0" col="1" class="text p-b-10 m-t-20 font-weight-bold" />
 
             <Label text="Service Type:" col="0" row="1" class="p-l-15 p-b-10 m-r-20 text-secondary font-weight-bold"/>
             <Label text="{{ task.tech_id }}" row="1" col="1" class="text p-b-10" />

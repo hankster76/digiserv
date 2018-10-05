@@ -21,35 +21,15 @@ import * as dialogs from 'ui/dialogs';
 //import 'rxjs/add/operator/switchMap';
 
 declare var android;
+var fullPage: Page;
 
 export function onNavigatingTo(args: NavigatedData) {
     if (args.isBackNavigation) {
         return;
     }
 
-    application.getResources().colorHandler = function(status) {
-        if (status === "1") {
-            return "red";
-        } else if (status === "2") {
-            return "purple";
-        } else {
-            return "green";
-        }
-    }
-
-    application.getResources().statusHandler = function(status) {
-        if (status === "1") {
-            return "New";
-        } else if (status === "2") {
-            return "Acknowledged";
-        } else {
-            return "Complete";
-        }
-    }
-
-
-    const page = <Page>args.object;
-    page.bindingContext = new TaskDetailViewModel(page.navigationContext);
+    fullPage = <Page>args.object;
+    fullPage.bindingContext = new TaskDetailViewModel(fullPage.navigationContext);
 }
 
 export function serviceTap(args: NavigatedData) {
