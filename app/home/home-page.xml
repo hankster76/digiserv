@@ -11,7 +11,7 @@
     </ActionBar>
 
     <StackLayout class="form">
-        <Label class="h2 text-center m-t-20 m-b-20" color="white" textWrap="true" text="Welcome to the Digiserv Technician App"></Label>
+<!--        <Label class="h2 text-center m-t-20 m-b-20" color="white" textWrap="true" text="Welcome to the Digiserv Technician App"></Label>  -->
         <StackLayout class="input-field m-t-20">
             <StackLayout visibility="{{ isSignedIn ? 'collapsed' : 'visible'}}">
                 <TextField hint="Enter User Name" text="{{ user.username }}" class="h3 input-border" style="background-color: white;"/>
