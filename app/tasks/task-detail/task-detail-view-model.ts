@@ -15,6 +15,7 @@ import { ObservableProperty } from "../../shared/observable-property-decorator";
 export class TaskDetailViewModel extends Observable {
     
     private _taskService: TaskService;
+    //private _task: Task;
     @ObservableProperty() statusColor: string;
     @ObservableProperty() statusText: string;
         
@@ -42,6 +43,7 @@ export class TaskDetailViewModel extends Observable {
 
     
     get task(): Task {
+        console.log("Getting task");
         return this._task;
     }
 

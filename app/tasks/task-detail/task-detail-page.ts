@@ -34,7 +34,12 @@ export function onNavigatingTo(args: NavigatedData) {
 
 export function serviceTap(args: NavigatedData) {
     console.log("serviceTap");
-    topmost().navigate("/signature/signature");
+
+    const navigationEntry = {
+        moduleName: "/signature/signature",
+        context: fullPage.bindingContext
+    }
+    topmost().navigate(navigationEntry);
 }
 
 export function onBackButtonTap(args: EventData) {

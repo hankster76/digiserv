@@ -13,11 +13,21 @@
     <StackLayout class="form">
         <Label class="h2 text-center m-t-20 m-b-20" color="white" textWrap="true" text="Welcome to the Digiserv Technician App"></Label>
         <StackLayout class="input-field m-t-20">
-            <TextField hint="Enter User Name" text="{{ username }}" class="h3 input-border" style="background-color: white;"/>
-            <StackLayout class="hr-light"></StackLayout>
-            <TextField hint="Enter Password" text="{{ password }}" secure="true" class="h3 input-border" style="background-color: white;"/>
-            <StackLayout>
-                <Button text="Sign In" tap="signIn" class="btn btn-primary"/>
+            <StackLayout visibility="{{ isSignedIn ? 'collapsed' : 'visible'}}">
+                <TextField hint="Enter User Name" text="{{ user.username }}" class="h3 input-border" style="background-color: white;"/>
+                <StackLayout class="hr-light"></StackLayout>
+                <TextField hint="Enter Password" text="{{ user.password }}" secure="true" class="h3 input-border" style="background-color: white;"/>
+            </StackLayout>
+            <StackLayout class="m-t-20" visibility="{{ isSignedIn ? 'visible':'collapsed' }}">
+                <StackLayout class="m-r-20 m-l-20" background="#02133E">
+                    <Label class="h2 text-center" text="{{ 'Welcome back, ' + user.username }}" color="white" textWrap="true"></Label>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout visibility="{{ isSignedIn ? 'visible' : 'collapsed' }}">
+                <Button text="Sign Out" tap="{{ signOut }}" class="btn btn-primary"/>
+            </StackLayout>
+            <StackLayout visibility="{{ isSignedIn ? 'collapsed' : 'visible' }}">
+                <button text="Sign In" tap="{{ signIn }}" class="btn btn-primary"/>
             </StackLayout>
         </StackLayout>
     </StackLayout>

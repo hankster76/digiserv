@@ -4,11 +4,12 @@ import { NavigatedData, Page } from "ui/page";
 import { HomeViewModel } from "./home-view-model";
 import { Frame, getFrameById, topmost } from "tns-core-modules/ui/frame";
 
+/*
 var user = {
     username: Config.kinveyUsername,
     password: Config.kinveyPassword
 }
-var isSignedIn: boolean;
+var isSignedIn: boolean;*/
 var page;
 
 export function signIn(username: string, password: string): void {
@@ -18,7 +19,6 @@ export function signIn(username: string, password: string): void {
         .then(function (result: any) {
             console.log("Logged in as: " + result.data.username);
             const topmostFrame: Frame = topmost();
-            isSignedIn = true;
             topmost().goBack;
             //topmost().navigate("tasks/tasks-page");
         })
@@ -41,18 +41,6 @@ export function logOut(): Promise<any> {
 }
 
 export function onNavigatingTo(args: NavigatedData) {
-    console.log("onNavigatingTo");
     page = <Page>args.object;
-    page.bindingContext = user;
-    logOut();
-    isSignedIn = false;
-}
-
-export function loggedStatus() {
-    console.log("signed in " + isSignedIn);
-    if (isSignedIn) { 
-        return "Sign Out";
-    } else {
-        return "Sign In";
-    }
+    page.bindingContext = new HomeViewModel();
 }
