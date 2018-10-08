@@ -34,6 +34,7 @@ export class HomeViewModel extends Observable {
                 console.log("Logged in as: " + result.data.username);
                 this.isSignedIn = true;
                 //const topmostFrame: Frame = topmost();
+                //topmost().navigate("tasks/tasks-page");
                 //topmost().goBack;
             })
             .catch((error) => {

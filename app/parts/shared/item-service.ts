@@ -46,7 +46,6 @@ export class ItemService {
     }
 
     load(): Promise<any> {
-        console.log("Item service load called");
         return this.login().then(() => {
         // adding logic to subscribe to push notification
         Push.register({
