@@ -28,11 +28,6 @@
                                 <Span text="{{ serviceType }}" />
                             </FormattedString>
                         </Label>
-                        <Label class="font-weight-bold p-l-10" >
-                            <FormattedString>
-                                <Span text="{{ date }}" />
-                            </FormattedString>
-                        </Label>
                     </StackLayout>
                 </StackLayout>
             </lv:RadListView.itemTemplate>
