@@ -27,8 +27,10 @@ export class SignatureViewModel extends Observable {
     this._taskViewModel.statusColor = "green";
     this._myDrawingPad.getDrawing().then(res => {
       console.log(res);
-      console.log("Changed task view model is: " + JSON.stringify(this._taskViewModel));
+      //console.log("Changed task view model is: " + JSON.stringify(this._taskViewModel));
     });
+
+    this._taskViewModel.taskService.update(this._taskViewModel.task);
     topmost().goBack();
   }
 

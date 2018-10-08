@@ -43,8 +43,11 @@ export class TaskDetailViewModel extends Observable {
 
     
     get task(): Task {
-        console.log("Getting task");
         return this._task;
+    }
+
+    get taskService(): TaskService {
+        return this._taskService;
     }
 
     public acknowledgeJob() {
