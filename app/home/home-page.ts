@@ -3,13 +3,9 @@ import { Config } from "../shared/config";
 import { NavigatedData, Page } from "ui/page";
 import { HomeViewModel } from "./home-view-model";
 import { Frame, getFrameById, topmost } from "tns-core-modules/ui/frame";
+import { Push } from "kinvey-nativescript-sdk/push";
 
-/*
-var user = {
-    username: Config.kinveyUsername,
-    password: Config.kinveyPassword
-}
-var isSignedIn: boolean;*/
+
 var page;
 
 export function signIn(username: string, password: string): void {
@@ -18,6 +14,8 @@ export function signIn(username: string, password: string): void {
         Kinvey.User.login(page.bindingContext.username, page.bindingContext.password)
         .then(function (result: any) {
             console.log("Logged in as: " + result.data.username);
+
+            console.log("past push registration");
             const topmostFrame: Frame = topmost();
             topmost().goBack;
             //topmost().navigate("tasks/tasks-page");
@@ -31,13 +29,6 @@ export function signIn(username: string, password: string): void {
 export function logOut(): Promise<any> {
     console.log("log out");
     return Kinvey.User.logout();
-//    const promise = Kinvey.User.logout()
-//.then(function (result: any) {
-//    console.log("Logged out as: " + result.data.username);
-//})
-//.catch(function (error) {
-//    console.log("Error: " + JSON.stringify(error));
-//});
 }
 
 export function onNavigatingTo(args: NavigatedData) {

@@ -13,9 +13,9 @@ declare var UIColor: any;
 
 
 export function onNavigatingTo(args: NavigatedData) {
-    Push.onNotification((data: any) => {
-        alert(data.body);
-    });
+    //Push.onNotification((data: any) => {
+    //    alert(data.body);
+    //});
 
     const page = <Page>args.object;
     const viewModel = new PartsListViewModel()
