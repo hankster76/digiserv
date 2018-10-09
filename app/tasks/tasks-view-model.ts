@@ -33,8 +33,17 @@ export class TasksListViewModel extends Observable {
     }
     
     public onPullToRefreshInitiated(args: ListViewEventData) {
-        this.load();
-        const listView = args.object;
-        listView.notifyPullToRefreshFinished();
+        this.isLoading = true;
+        this._taskService.load()
+            .then((items: Array<Task>) => {
+                this.items = new ObservableArray(items);
+                this.isLoading = false;
+                const listView = args.object;
+                listView.notifyPullToRefreshFinished();
+            })
+            .catch((err) => {
+                this.isLoading = false;
+                console.log("Err: " + err);
+            })
     }
 }

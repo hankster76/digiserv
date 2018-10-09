@@ -32,10 +32,18 @@ export class PartsListViewModel extends Observable {
     }
 
     public onPullToRefreshInitiated(args: ListViewEventData) {
-        console.log("Refresh parts list");
-        this.load();
-        const listView = args.object;
-        listView.notifyPullToRefreshFinished();
+        this.isLoading = true;
+        this._itemService.load()
+            .then((items: Array<Item>) => {
+                this.items = new ObservableArray(items);
+                const listView = args.object;
+                this.isLoading = false;
+                listView.notifyPullToRefreshFinished();
+            })
+            .catch((err) => {
+                console.log("Err: " + err);
+                this.isLoading = false;
+            });
     }
 
 }
